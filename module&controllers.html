@@ -1,0 +1,25 @@
+<html ng-app = "myapp">
+<head>
+  <title>Modules and controllers</title>
+</head>
+<body>
+<div ng-controller = "simplecontroller">
+  <input type = "text" ng-model="typename">
+  <ul>
+    <li ng-repeat="d in data | filter:typename | orderBy:'city'">{{d.name+" "+d.city}}</li>
+  </ul>
+</div>
+<script type="text/javascript" src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript">
+  var myApp = angular.module("myapp" , []);
+  var controllers = [];
+  controllers.simplecontroller = function($scope){
+    $scope.data = [{name:'avin',city:'nagpur'},
+    {name:'shrey',city:'pune'},
+    {name:'James',city:'gotham'},
+    {name:'sachin',city:'mumbai'}];
+  }
+  myApp.controller(controllers);
+</script>
+</body>
+</html>
